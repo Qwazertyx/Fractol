@@ -25,9 +25,13 @@ typedef struct s_data
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		winwidth;
+	int		winlength;
 	int		x;
 	int		y;
-	int		uwu;
+	float		leftright;
+	float		updown;
+	float		zoom;
 }				t_data;
 
 #endif

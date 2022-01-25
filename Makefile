@@ -67,8 +67,6 @@ all: 	${NAME}
 
 test:
 			@echo "$(GREEN)ඞ this test is sus ඞ$(CYAN)"
-			@echo "$(BLUE)click to draw, click again to pause$(CYAN)"
-			@echo "$(BLUE)press C to erase and ECHAP to quit$(CYAN)"
 			@${CC} ${CMLX} ${SRCS} -o ${NAME}
 			@./${NAME}
 

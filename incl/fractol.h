@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:36:57 by vsedat            #+#    #+#             */
-/*   Updated: 2022/01/28 16:16:24 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2022/01/28 16:32:43 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct s_data
 	int				mousex;
 	int				mousey;
 	int				depthmax;
-	unsigned int	color;
 	double			leftright;
 	double			updown;
 	double			zoom;

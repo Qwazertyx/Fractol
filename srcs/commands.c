@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 10:03:12 by vsedat            #+#    #+#             */
-/*   Updated: 2022/01/28 16:18:39 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2022/01/28 17:27:20 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,16 @@ int	key_hook(int keycode, t_data *data)
 		data->leftright -= data->zoom;
 	if (keycode == 49)
 		vardef(data);
-//	printf("1: %f\n", data->zoomx);
-//	printf("2: %f\n", data->zoomy);
+	if (keycode >= 18 && keycode <= 23)
+		data->pal = &get_pal()[keycode - 18];
+	if (keycode == 26)
+		data->pal = &get_pal()[6];
+	if (keycode == 28)
+		data->pal = &get_pal()[7];
+	if (keycode == 25)
+		data->pal = &get_pal()[8];
+	if (keycode == 29)
+		data->pal = &get_pal()[9];
 	algo(data);
 	return (0);
 }

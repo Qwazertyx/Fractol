@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 11:01:15 by vsedat            #+#    #+#             */
-/*   Updated: 2022/01/28 16:11:26 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2022/01/28 17:25:22 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,42 @@ void	vardef(t_data *data)
 	data->zoomy = 1;
 	data->mousex = 1;
 	data->mousey = 1;
-	data->color = 0x0FF088;
+	data->pal = &get_pal()[9];
 }
 
 t_pal	*get_pal(void)
 {
-	static t_pal	tab[4];
+	static t_pal	tab[10];
 
 	tab[0] = \
-		(t_pal){15, {0xd5b7a7, 0xdaaa99, 0xe39c8c, \
-						0xf48e81, 0xff8079, 0xff7273, \
-						0xff6370, 0xdc5570, 0xc04872, \
-						0xa43b76, 0x882e7c, 0x6a2282, \
-						0x4a1788, 0x280e8e, 0x050591}};
-	tab[1] = \
-		(t_pal){5, {0xfff89b, 0xdf9434, 0x000000, \
-						0x0055ff, 0xfffdff}};
-	tab[2] = \
 		(t_pal){5, {0x070700, 0x353632, 0x646563, \
 						0x929595, 0xc1c4c6}};
+	tab[1] = \
+		(t_pal){5, {0x775C6D, 0x6d6f95, 0x0c1957, \
+						0xAF91C3, 0x442CB0,}};
+	tab[2] = \
+		(t_pal){5, {0xFFBF60, 0x171070, 0xA0A5FF, \
+						0xE0358B, 0xD468ED,}};
 	tab[3] = \
-		(t_pal){7, {0x00FFFF, 0x0000FF, 0xFF00FF, \
-						0xFF0000, 0xFFFF00, 0x00FF00, \
-						0x00FFFF}};
+		(t_pal){5, {0xBBD8EF, 0xCF6A93, 0x9CA7AE, \
+						0xBBF6F7, 0xE4F5F7,}};
+	tab[4] = \
+		(t_pal){5, {0x562135, 0xC3829E, 0xE9B1CD, \
+						0xFFE7DE, 0xFCD1D7,}};
+	tab[5] = \
+		(t_pal){5, {0x85AEDA, 0x456268, 0xB99EC9, \
+						0x8A6BB9, 0x252853,}};
+	tab[6] = \
+		(t_pal){5, {0x5E0943, 0xB14359, 0xF4709A, \
+						0xF0A5C1, 0xEBE6D9,}};
+	tab[7] = \
+		(t_pal){4, {0x082032, 0x2C394B, 0x334756, \
+						0xFF4C29,}};
+	tab[8] = \
+		(t_pal){4, {0x000000, 0x5800FF, 0xE900FF, \
+						0xFFC600,}};
+	tab[9] = \
+		(t_pal){5, {0x03045E, 0x0077B6, 0x00B4D8, \
+						0x90E0EF, 0xCAF0F8,}};
 	return (tab);
 }

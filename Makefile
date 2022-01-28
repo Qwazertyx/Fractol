@@ -6,7 +6,7 @@
 #    By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 15:08:55 by vsedat            #+#    #+#              #
-#    Updated: 2022/01/21 16:58:08 by vsedat           ###   ########lyon.fr    #
+#    Updated: 2022/01/28 11:04:02 by vsedat           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,10 @@ OBJS = $(addprefix $(OBJ_PATH)/,$(SOURCES:.c=.o))
 ##****************##
 ### SOURCE FILES ###
 ##****************##
-SOURCES	= fractol.c	\
+SOURCES	=	fractol.c	\
+			commands.c	\
+			init.c		\
+			color.c		\
 
 ##*********##
 ### RULES ###

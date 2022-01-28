@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 10:06:39 by vsedat            #+#    #+#             */
-/*   Updated: 2022/01/28 16:23:04 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2022/01/28 17:51:01 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	mandelbrot(t_data *data, int px, int py)
 	i = 0;
 	while (x * x + y * y <= 2 * 2 && i < data->depthmax)
 	{
-		temp = (x * x - y * y + (px * (0.005 * data->zoom)
+   		temp = (x * x - y * y + (px * (0.005 * data->zoom)
 					- (2 * data->updown * data->zoomx)));
 		y = (2 * x * y + (py * (0.005 * data->zoom)
 					- (1.5 * data->leftright * data->zoomy)));

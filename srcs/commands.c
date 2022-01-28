@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 10:03:12 by vsedat            #+#    #+#             */
-/*   Updated: 2022/01/28 17:27:20 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2022/01/28 17:40:58 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ int	mouse_hook(int keycode, int x, int y, t_data *data)
 {
 	if (keycode == 4)
 	{
-		data->zoom -= 0.1 * data->zoom;
-		data->zoomx -= 0.1 * data->mousex / (data->winwidth / 2) * data->zoom;
-		data->zoomy -= 0.1 * data->mousey / (data->winwidth / 2) * data->zoom;
-		data->depthmax += 3;
+		data->zoom -= 0.15 * data->zoom;
+		data->zoomx -= 0.15 * data->mousex / (data->winwidth / 2) * data->zoom;
+		data->zoomy -= 0.15 * data->mousey / (data->winwidth / 2) * data->zoom;
+		data->depthmax += 1;
 	}
 	if (keycode == 5)
 	{
-		data->zoom += 0.1 * data->zoom;
-		data->zoomx += 0.1 * data->mousex / (data->winwidth / 2) * data->zoom;
-		data->zoomy += 0.1 * data->mousey / (data->winwidth / 2) * data->zoom;
-		data->depthmax -= 3;
+		data->zoom += 0.15 * data->zoom;
+		data->zoomx += 0.15 * data->mousex / (data->winwidth / 2) * data->zoom;
+		data->zoomy += 0.15 * data->mousey / (data->winwidth / 2) * data->zoom;
+		data->depthmax -= 1;
 	}
 	algo(data);
 	return (0);
@@ -73,8 +73,8 @@ int	locmouse(int x, int y, t_data *data)
 	{
 		data->mousex = x;
 		data->mousey = y;
-	//	printf("x: %d\n", x);
-	//	printf("y: %d\n", y);
+		printf("x: %d\n", x);
+		printf("y: %d\n", y);
 	}
 	return (0);
 }

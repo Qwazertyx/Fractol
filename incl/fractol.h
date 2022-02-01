@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:36:57 by vsedat            #+#    #+#             */
-/*   Updated: 2022/01/28 16:32:43 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 13:53:08 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <math.h>
 # include <stdio.h> //to delete asap
+# include <unistd.h>
 
 typedef unsigned char	t_char;
 
@@ -60,13 +61,17 @@ typedef struct s_data
 	double			zoomy;
 	double			i;
 	double			j;
+	double			const1;
+	double			const2;
+	int				frachoice;
+	int				moovepls;
 	t_pal			*pal;
 }				t_data;
 
 t_pal	*get_pal(void);
 int		locmouse(int x, int y, t_data *data);
 int		key_hook(int keycode, t_data *data);
-int		close(t_data *data);
+int		closewin(t_data *data);
 void	vardef(t_data *data);
 int		algo(t_data *data);
 int		mandelbrot(t_data *data, int px, int py);
@@ -77,5 +82,8 @@ int		lerp(int v0, int v1, double p);
 t_color	linear_color(double i, int max, t_pal *pal);
 t_color	color_lerp(t_color col1, t_color col2, double p);
 void	ft_color(t_data *v, int x, int y, int iter);
+int		parsing(t_data *data, int argc, char *argv[]);
+int		ft_strcmp(char *a, char *b);
+int		julia(t_data *data, int px, int py);
 
 #endif

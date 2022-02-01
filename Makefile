@@ -6,7 +6,7 @@
 #    By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 15:08:55 by vsedat            #+#    #+#              #
-#    Updated: 2022/02/01 14:37:09 by vsedat           ###   ########lyon.fr    #
+#    Updated: 2022/02/01 15:07:30 by vsedat           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,6 +90,9 @@ mandelbrot:	test
 			
 julia:	test
 		./fractol julia
+
+tricorn:	test
+		./fractol tricorn
 		
 clean:
 		rm -f ${OBJS}

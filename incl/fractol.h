@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 14:36:57 by vsedat            #+#    #+#             */
-/*   Updated: 2022/02/01 13:53:08 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 15:20:05 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ void	ft_color(t_data *v, int x, int y, int iter);
 int		parsing(t_data *data, int argc, char *argv[]);
 int		ft_strcmp(char *a, char *b);
 int		julia(t_data *data, int px, int py);
+int		tricorn(t_data *data, int px, int py);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:34:23 by vsedat            #+#    #+#             */
-/*   Updated: 2022/01/31 14:29:14 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 15:06:49 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ int	parsing(t_data *data, int argc, char *argv[])
 	if (!ft_strcmp(argv[1], "julia"))
 	{
 		data->frachoice = 2;
+		return (1);
+	}
+	if (!ft_strcmp(argv[1], "tricorn"))
+	{
+		data->frachoice = 3;
 		return (1);
 	}
 	return (0);

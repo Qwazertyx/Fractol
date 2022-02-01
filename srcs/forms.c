@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:34:26 by vsedat            #+#    #+#             */
-/*   Updated: 2022/02/01 14:14:03 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 15:33:52 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	algo(t_data *data)
 				ft_color(data, x, y, mandelbrot(data, x, y));
 			if (data->frachoice == 2)
 				ft_color(data, x, y, julia(data, x, y));
+			if (data->frachoice == 3)
+				ft_color(data, x, y, tricorn(data, x, y));
 			y++;
 		}
 		x++;
@@ -73,6 +75,30 @@ int	julia(t_data *data, int px, int py)
 	{
 		temp = x * x - y * y - (0.8 * data->mousex / 300);
 		y = 2 * x * y + (0.2 * data->mousey / 300);
+		x = temp;
+		data->i = x;
+		data->j = y;
+		i++;
+	}
+	return (i);
+}
+
+int	tricorn(t_data *data, int px, int py)
+{
+	double	x;
+	double	y;
+	double	temp;
+	int		i;
+
+	x = px * 0.0065 * data->zoom - 2 * data->zoomx * data->updown;
+	y = py * 0.0065 * data->zoom - 2 * data->zoomy * data->leftright;
+	i = 0;
+	while (x * x + y * y <= 4 && i < data->depthmax)
+	{
+		temp = x * x - y * y + px * 0.0065 * data->zoom
+			- 2 * data->zoomx * data->updown;
+		y = -2 * x * y + py * 0.0065 * data->zoom
+			- 2 * data->zoomy * data->leftright;
 		x = temp;
 		data->i = x;
 		data->j = y;

@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 10:06:39 by vsedat            #+#    #+#             */
-/*   Updated: 2022/02/01 12:21:27 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2022/02/01 15:03:09 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char *argv[])
 	}
 	data.mlx = mlx_init();
 	vardef(&data);
-	data.pal = &get_pal()[8];
+	data.pal = &get_pal()[5];
 	data.win = mlx_new_window(data.mlx, data.winwidth, data.winlength, "baka");
 	data.img = mlx_new_image(data.mlx, data.winwidth, data.winlength);
 	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel,

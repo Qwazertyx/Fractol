@@ -6,7 +6,7 @@
 #    By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 15:08:55 by vsedat            #+#    #+#              #
-#    Updated: 2022/02/01 15:07:30 by vsedat           ###   ########lyon.fr    #
+#    Updated: 2022/02/07 16:24:32 by vsedat           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,13 +45,13 @@ CC		= gcc -Ofast
 CFLAGS	= -Wall -Wextra -Werror
 CMLX	= -framework OpenGL -framework AppKit -g -lmlx -Lmlx
 
-##*************##
-### DIR PATHS ###
-##*************##
-HEADER		= incl
-MLX			= mlx
-OBJ_PATH	= objs
-SRC_PATH	= srcs
+##*******************##
+### DIRECTORY PATHS ###
+##*******************##
+HEADER		= ./incl/fractol.h
+MLX			= ./mlx
+OBJ_PATH	= ./objs
+SRC_PATH	= ./srcs
 
 ##***********##
 ### OBJECTS ###
@@ -72,36 +72,64 @@ SOURCES	=	fractol.c	\
 ##*********##
 ### RULES ###
 ##*********##
-$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER)/$(NAME).h
-			${CC} ${CFLAGS} ${CMLX} -c $< -o ${<:.c=.o}
 
-all: 	${NAME}
-		@make -C ${MLX}
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER) Makefile
+			@mkdir -p objs
+			@echo "$(BLUE)$(UNDERLINE)Compiling:$(END)$(CYAN) $<"
+			@${CC} ${CFLAGS} -c $< -o $@
 
-test:
-			@echo "$(GREEN)ඞ this test is sus ඞ$(RED)"
-			${CC} ${CMLX} ${SRCS} -o ${NAME}
+all: 	mlx ${NAME}
 
 ${NAME}:	${OBJS}
-			${CC} ${CFLAGS} ${CMLX} -o ${NAME} ${OBJS}
+			@${CC} ${CFLAGS} ${CMLX} ${OBJS} -o ${NAME}
+			@echo "$(GREEN)Successful compilation"
+
+mlx:
+		@make -C ${MLX}
 
 mandelbrot:	test
-			./fractol mandelbrot
+			@echo "$(VIOLET)This is the mandelbrot fractal$(END)"
+			@./${NAME} mandelbrot
 			
 julia:	test
-		./fractol julia
+		@echo "$(VIOLET)This is the julia fractal$(END)"
+		@./${NAME} julia
 
 tricorn:	test
-		./fractol tricorn
+		@echo "$(VIOLET)This is the tricorn fractal$(END)"
+		@./${NAME} tricorn
 		
 clean:
-		rm -f ${OBJS}
+		@rm -f ${OBJS}
+		@echo "$(BLUE)Object files cleaned$(DEF_COLOR)"
 
 fclean:	clean
-		rm -rf ${NAME} 
+		@rm -f ${NAME}
+		@make -C ${MLX} clean
+		@echo "$(CYAN)Executable files cleaned$(END)"
 
-re:	fclean all
+re:	fclean
+	@${MAKE} all
+	@echo "$(VIOLET)Cleaned and rebuilt everything$(END)"
 
-retest:	fclean test
+sus:
+	@echo "$(IRED)⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣤⣤⣶⣦⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀$(END)"
+	@echo "$(IRED)⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡿⠛⠉⠙⠛⠛⠛⠛⠻⢿⣿⣷⣤⡀⠀⠀⠀⠀⠀$(END)"
+	@echo "$(IRED)⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⠋⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠈⢻⣿⣿⡄⠀⠀⠀⠀$(END)"
+	@echo "$(IRED)⠀⠀⠀⠀⠀⠀⠀⣸⣿⡏⠀⠀⠀⣠⣶⣾⣿⣿⣿⠿⠿⠿⢿⣿⣿⣿⣄⠀⠀⠀$(END)"
+	@echo "$(IRED)⠀⠀⠀⠀⠀⠀⠀⣿⣿⠁⠀⠀⢰⣿⣿⣯⠁⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣷⡄⠀$(END)"
+	@echo "$(IRED)⠀⠀⣀⣤⣴⣶⣶⣿⡟⠀⠀⠀⢸⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣷⠀$(END)"
+	@echo "$(IRED)⠀⢰⣿⡟⠋⠉⣹⣿⡇⠀⠀⠀⠘⣿⣿⣿⣿⣷⣦⣤⣤⣤⣶⣶⣶⣶⣿⣿⣿⠀$(END)"
+	@echo "$(IRED)⠀⢸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀$(END)"
+	@echo "$(IRED)⠀⣸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠉⠻⠿⣿⣿⣿⣿⡿⠿⠿⠛⢻⣿⡇⠀⠀$(END)"
+	@echo "$(IRED)⠀⠸⣿⣧⡀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠃⠀⠀$(END)"
+	@echo "$(IRED)⠀⠀⠛⢿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⣰⣿⣿⣷⣶⣶⣶⣶⠶⠀⢠⣿⣿⠀⠀⠀$(END)"
+	@echo "$(IRED)⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⣽⣿⡏⠁⠀⠀⢸⣿⡇⠀⠀⠀$(END)"
+	@echo "$(IRED)⠀⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⢹⣿⡆⠀⠀⠀⣸⣿⠇⠀⠀⠀$(END)"
+	@echo "$(IRED)⠀⠀⠀⠀⠀⠀⠀⢿⣿⣦⣄⣀⣠⣴⣿⣿⠁⠀⠈⠻⣿⣿⣿⣿⡿⠏⠀⠀⠀⠀$(END)"
+	@echo "$(IRED)⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⠿⠿⠿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀$(END)"
+	@echo "$(WHITE)⠀⠀⠀⠀⠀⠀⠀⠀⠀░█▀▀░█░█░█▀▀$(END)"
+	@echo "$(WHITE)⠀⠀⠀⠀⠀⠀⠀⠀⠀░▀▀█░█░█░▀▀█$(END)"
+	@echo "$(WHITE)⠀⠀⠀⠀⠀⠀⠀⠀⠀░▀▀▀░▀▀▀░▀▀▀$(END)"
 
-.PHONY:	all clean fclean re test retest
+.PHONY:	all clean fclean re mlx mandelbrot julia tricorn sus

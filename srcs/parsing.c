@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:34:23 by vsedat            #+#    #+#             */
-/*   Updated: 2022/02/01 15:06:49 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2022/02/07 15:41:05 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_strcmp(char *a, char *b)
 
 int	parsing(t_data *data, int argc, char *argv[])
 {
-	if (argc != 2)
+	if (argc < 2)
 		return (0);
 	if (!ft_strcmp(argv[1], "mandelbrot"))
 	{

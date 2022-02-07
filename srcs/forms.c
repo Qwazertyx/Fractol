@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:34:26 by vsedat            #+#    #+#             */
-/*   Updated: 2022/02/01 15:33:52 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2022/02/07 15:38:43 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,11 @@ int	algo(t_data *data)
 		x++;
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+	mlx_string_put(data->mlx, data->win, 0, 10, 0xFFFFFF, "Color: 0 .. 9");
+	mlx_string_put(data->mlx, data->win, 0, 20, 0xFFFFFF, "Reset: Space");
+	if (data->frachoice == 2)
+		mlx_string_put(data->mlx, data->win, 0, 30, 0xFFFFFF, "Pause: P");
 	return (0);
-}
-
-int	mandelbrot(t_data *data, int px, int py)
-{
-	double	x;
-	double	y;
-	double	temp;
-	int		i;
-
-	x = 0;
-	y = 0;
-	i = 0;
-	while (x * x + y * y <= 4 && i < data->depthmax)
-	{
-		temp = (x * x - y * y + (px * (0.005 * data->zoom)
-					- (2 * data->updown * data->zoomx)));
-		y = (2 * x * y + (py * (0.005 * data->zoom)
-					- (1.5 * data->leftright * data->zoomy)));
-		x = temp;
-		data->i = x;
-		data->j = y;
-		i++;
-	}
-	return (i);
 }
 
 int	julia(t_data *data, int px, int py)
@@ -106,3 +86,28 @@ int	tricorn(t_data *data, int px, int py)
 	}
 	return (i);
 }
+
+int	mandelbrot(t_data *data, int px, int py)
+{
+	double	x;
+	double	y;
+	double	temp;
+	int		i;
+
+	x = 0;
+	y = 0;
+	i = 0;
+	while (x * x + y * y <= 4 && i < data->depthmax)
+	{
+		temp = x * x - y * y + (px * 0.005 * data->zoom
+				- 2 * data->updown * data->zoomx);
+		y = 2 * x * y + (py * 0.005 * data->zoom
+				- 1.5 * data->leftright * data->zoomy);
+		x = temp;
+		data->i = x;
+		data->j = y;
+		i++;
+	}
+	return (i);
+}
+

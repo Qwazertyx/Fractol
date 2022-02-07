@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 10:06:39 by vsedat            #+#    #+#             */
-/*   Updated: 2022/02/01 15:03:09 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2022/02/07 15:51:08 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,9 @@ int	main(int argc, char *argv[])
 	t_data	data;
 
 	if (parsing(&data, argc, argv) == 0)
-	{
-		write (1, "Wrong parameter, here is a list of the different ", 49);
-		write (1, "parameters available:\n- mandelbrot\n- julia\n", 43);
-		return (0);
-	}
+		return (write (1, "Wrong parameter {•̃_•̃}\
+		\n\nhere is a list of the different parameters available:\
+		\n- mandelbrot\n- julia\n- tricorn\n", 121));
 	data.mlx = mlx_init();
 	vardef(&data);
 	data.pal = &get_pal()[5];

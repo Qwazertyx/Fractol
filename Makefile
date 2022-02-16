@@ -6,7 +6,7 @@
 #    By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 15:08:55 by vsedat            #+#    #+#              #
-#    Updated: 2022/02/07 16:24:32 by vsedat           ###   ########lyon.fr    #
+#    Updated: 2022/02/08 16:01:27 by vsedat           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,15 +87,15 @@ ${NAME}:	${OBJS}
 mlx:
 		@make -C ${MLX}
 
-mandelbrot:	test
+mandelbrot:	all
 			@echo "$(VIOLET)This is the mandelbrot fractal$(END)"
 			@./${NAME} mandelbrot
 			
-julia:	test
+julia:	all
 		@echo "$(VIOLET)This is the julia fractal$(END)"
 		@./${NAME} julia
 
-tricorn:	test
+tricorn:	all
 		@echo "$(VIOLET)This is the tricorn fractal$(END)"
 		@./${NAME} tricorn
 		

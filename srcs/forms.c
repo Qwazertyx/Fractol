@@ -6,7 +6,7 @@
 /*   By: vsedat <vsedat@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 11:34:26 by vsedat            #+#    #+#             */
-/*   Updated: 2022/02/07 15:38:43 by vsedat           ###   ########lyon.fr   */
+/*   Updated: 2022/02/16 10:24:48 by vsedat           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,3 @@ int	mandelbrot(t_data *data, int px, int py)
 	}
 	return (i);
 }
-
